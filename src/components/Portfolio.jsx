@@ -3,12 +3,12 @@ import { FaPlayCircle } from 'react-icons/fa'
 import './Portfolio.css'
 
 const portfolioItems = [
-    { id: 1, title: "University Promo", category: "Motion Graphics", color: "#1c54da" },
-    { id: 2, title: "Science Explained", category: "Educational", color: "#fcd476" },
-    { id: 3, title: "Corporate Showreel", category: "Video Editing", color: "#ff6b6b" },
-    { id: 4, title: "E-Learning Series", category: "Instructional Design", color: "#4ecdc4" },
-    { id: 5, title: "Logo Animation", category: "Branding", color: "#45b7d1" },
-    { id: 6, title: "Social Media Ads", category: "Digital Marketing", color: "#96ceb4" }
+    { id: 1, image: "/imageforshowreels/1.png", title: "Showreel 1" },
+    { id: 2, image: "/imageforshowreels/5.png", title: "Showreel 2" },
+    { id: 3, image: "/imageforshowreels/9.png", title: "Showreel 3" },
+    { id: 4, image: "/imageforshowreels/13.png", title: "Showreel 4" },
+    { id: 5, image: "/imageforshowreels/7.jpg", title: "Showreel 5" },
+    { id: 6, image: "/imageforshowreels/Wishes 2025.jpg", title: "Showreel 6" }
 ]
 
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
@@ -29,14 +29,22 @@ const Portfolio = () => {
                         viewport={{ once: true, margin: "-50px" }}
                         whileHover={{ y: -10, transition: { duration: 0.3 } }}
                     >
-                        <div className="portfolio-thumb">
-                            <div className="thumb-overlay" style={{ background: item.color }}>
+                        <div className="portfolio-thumb" style={{ paddingBottom: '100%', position: 'relative', overflow: 'hidden' }}>
+                           <img 
+                               src={item.image} 
+                               alt={item.title} 
+                               style={{
+                                   position: 'absolute',
+                                   top: 0,
+                                   left: 0,
+                                   width: '100%',
+                                   height: '100%',
+                                   objectFit: 'cover'
+                               }}
+                           />
+                            <div className="thumb-overlay" style={{ background: 'rgba(0,0,0,0.5)' }}>
                                 <FaPlayCircle />
                             </div>
-                        </div>
-                        <div className="portfolio-info">
-                            <h3>{item.title}</h3>
-                            <p>{item.category}</p>
                         </div>
                     </motion.div>
                 ))}
